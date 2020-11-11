@@ -55,6 +55,7 @@ namespace TriviaGame.Services
         private string GetQueryString(QueryOptions options)
         {
             var result = new StringBuilder("api.php?");
+            result.Append($"token={_token}");
             var (Amount, Category, Difficulty, MultipleChoice) = options;
 
             if (Amount != null)
@@ -63,21 +64,21 @@ namespace TriviaGame.Services
                 {
                     if (Amount > 0)
                     {
-                        result.Append($"amount={Amount}");
+                        result.Append($"&amount={Amount}");
                     }
                     else
                     {
-                        result.Append("amount=1");
+                        result.Append("&amount=1");
                     }
                 }
                 else
                 {
-                    result.Append("amount=50");
+                    result.Append("&amount=50");
                 }
             }
             else
             {
-                result.Append("amount=1");
+                result.Append("&amount=1");
             }
 
             if (Category != null)
