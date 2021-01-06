@@ -7,6 +7,7 @@ namespace TriviaGame
     class Program
     {
         private static IApiClient _api;
+        // random comment
 
         public static void Main()
         {
